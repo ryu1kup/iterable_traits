@@ -13,7 +13,12 @@ currently the following STL containers are supported:
 - `std::unordered_set`
 - `std::unordered_multiset`
 
-# usave
+## installation
+
+`iterable_traits.h` is a single file header-only library.
+Simply place this file in your library path and you're ready to go.
+
+## usage
 
 ```
 #include "iterable_traits.h"
