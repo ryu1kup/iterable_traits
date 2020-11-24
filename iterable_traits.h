@@ -9,6 +9,8 @@
 #include <deque>
 #include <set>
 #include <unordered_set>
+#include <map>
+#include <unordered_map>
 
 namespace detail {
     // meta function for checking if the template argument is iterable or not
@@ -101,6 +103,46 @@ namespace detail {
 
     template <class T>
     constexpr bool is_unordered_multiset_v = is_unordered_multiset<T>::value;
+
+    // meta function for checking if the template argument is std::map<K, V>
+    template <class T>
+    struct is_map : std::false_type {};
+
+    template <class K, class V>
+    struct is_map<std::map<K, V>> : std::true_type {};
+
+    template <class T>
+    constexpr bool is_map_v = is_map<T>::value;
+
+    // meta function for checking if the template argument is std::multimap<K, V>
+    template <class T>
+    struct is_multimap : std::false_type {};
+
+    template <class K, class V>
+    struct is_multimap<std::multimap<K, V>> : std::true_type {};
+
+    template <class T>
+    constexpr bool is_multimap_v = is_multimap<T>::value;
+
+    // meta function for checking if the template argument is std::unordered_map<K, V>
+    template <class T>
+    struct is_unordered_map : std::false_type {};
+
+    template <class K, class V>
+    struct is_unordered_map<std::unordered_map<K, V>> : std::true_type {};
+
+    template <class T>
+    constexpr bool is_unordered_map_v = is_unordered_map<T>::value;
+
+    // meta function for checking if the template argument is std::unordered_multimap<K, V>
+    template <class T>
+    struct is_unordered_multimap : std::false_type {};
+
+    template <class K, class V>
+    struct is_unordered_multimap<std::unordered_multimap<K, V>> : std::true_type {};
+
+    template <class T>
+    constexpr bool is_unordered_multimap_v = is_unordered_multimap<T>::value;
 }
 
 #endif

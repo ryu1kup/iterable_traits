@@ -12,6 +12,14 @@ currently the following STL containers are supported:
 - `std::multiset`
 - `std::unordered_set`
 - `std::unordered_multiset`
+- `std::map`
+- `std::multimap`
+- `std::unordered_map`
+- `std::unordered_multimap`
+
+## requirement
+
+This library uses "detection idiom" with `std::void_t`, so you need to use C++17.
 
 ## installation
 
