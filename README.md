@@ -1,8 +1,8 @@
 # iterable_traits
 
-simple header-only library providing iterable traits classes.
+Simple header-only library providing iterable traits classes.
 
-currently the following STL containers are supported:
+Currently the following STL containers are supported:
 
 - `std::vector`
 - `std::list`

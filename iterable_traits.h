@@ -13,14 +13,17 @@
 #include <unordered_map>
 #include <array>
 
-namespace detail {
+namespace iterable {
     // meta function for checking if the template argument is iterable or not
-    // here iterable means the template argument can be applied std::begin() and std::end()
     template <class T, typename = void>
     struct is_iterable : std::false_type {};
 
     template <class T>
-    struct is_iterable<T, std::void_t<decltype(std::begin(std::declval<T>())), decltype(std::end(std::declval<T>()))>> : std::true_type {};
+    struct is_iterable<
+        T,
+        std::void_t<decltype(std::begin(std::declval<T&>()) != std::end(std::declval<T&>())),
+                    decltype(++std::begin(std::declval<T&>())),
+                    decltype(*std::begin(std::declval<T&>()))>> : std::true_type {};
 
     template <class T>
     constexpr bool is_iterable_v = is_iterable<T>::value;
