@@ -36,9 +36,9 @@ Simply place this file in your library path and you're ready to go.
 int main(){
     std::vector<int> v {1, 2, 3, 4, 5};
 
-    static_assert(detail::is_iterable<decltype(v)>::value);
-    static_assert(detail::is_iterable_v<decltype(v)>);
-    static_assert(detail::is_vector<decltype(v)>::value);
-    static_assert(detail::is_vector_v<decltype(v)>);
+    static_assert(iterable::is_iterable<decltype(v)>::value);
+    static_assert(iterable::is_iterable_v<decltype(v)>);
+    static_assert(iterable::is_vector<decltype(v)>::value);
+    static_assert(iterable::is_vector_v<decltype(v)>);
 }
 ```
