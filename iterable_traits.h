@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <map>
 #include <unordered_map>
+#include <array>
 
 namespace detail {
     // meta function for checking if the template argument is iterable or not
@@ -143,6 +144,16 @@ namespace detail {
 
     template <class T>
     constexpr bool is_unordered_multimap_v = is_unordered_multimap<T>::value;
+
+    // meta function for checking if the template argument is std::array<T, N>
+    template <class T>
+    struct is_array : std::false_type {};
+
+    template <class T,  std::size_t N>
+    struct is_array<std::array<T, N>> : std::true_type {};
+
+    template <class T>
+    constexpr bool is_array_v = is_array<T>::value;
 }
 
 #endif

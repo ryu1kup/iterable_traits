@@ -16,6 +16,7 @@ currently the following STL containers are supported:
 - `std::multimap`
 - `std::unordered_map`
 - `std::unordered_multimap`
+- `std::array`
 
 ## requirement
 
