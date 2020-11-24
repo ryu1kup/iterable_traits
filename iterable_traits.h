@@ -1,5 +1,5 @@
-#ifndef CPP_INTERNAL_DETAILS_ITERABLE_TRAITS
-#define CPP_INTERNAL_DETAILS_ITERABLE_TRAITS 1
+#ifndef CPP_ITERABLE_TRAITS_H
+#define CPP_ITERABLE_TRAITS_H 1
 
 #include <iterator>
 #include <type_traits>
