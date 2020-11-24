@@ -25,6 +25,10 @@ namespace iterable {
                     decltype(++std::begin(std::declval<T&>())),
                     decltype(*std::begin(std::declval<T&>()))>> : std::true_type {};
 
+    template <class T> struct is_iterable<const T> : public is_iterable<T> {};
+    template <class T> struct is_iterable<volatile const T> : public is_iterable<T> {};
+    template <class T> struct is_iterable<volatile T> : public is_iterable<T> {};
+
     template <class T>
     constexpr bool is_iterable_v = is_iterable<T>::value;
 
@@ -34,6 +38,10 @@ namespace iterable {
 
     template <class T>
     struct is_vector<std::vector<T>> : std::true_type {};
+
+    template <class T> struct is_vector<const T> : public is_vector<T> {};
+    template <class T> struct is_vector<volatile const T> : public is_vector<T> {};
+    template <class T> struct is_vector<volatile T> : public is_vector<T> {};
 
     template <class T>
     constexpr bool is_vector_v = is_vector<T>::value;
@@ -45,6 +53,10 @@ namespace iterable {
     template <class T>
     struct is_list<std::list<T>> : std::true_type {};
 
+    template <class T> struct is_list<const T> : public is_list<T> {};
+    template <class T> struct is_list<volatile const T> : public is_list<T> {};
+    template <class T> struct is_list<volatile T> : public is_list<T> {};
+
     template <class T>
     constexpr bool is_list_v = is_list<T>::value;
 
@@ -54,6 +66,10 @@ namespace iterable {
 
     template <class T>
     struct is_forward_list<std::forward_list<T>> : std::true_type {};
+
+    template <class T> struct is_forward_list<const T> : public is_forward_list<T> {};
+    template <class T> struct is_forward_list<volatile const T> : public is_forward_list<T> {};
+    template <class T> struct is_forward_list<volatile T> : public is_forward_list<T> {};
 
     template <class T>
     constexpr bool is_forward_list_v = is_forward_list<T>::value;
@@ -65,6 +81,10 @@ namespace iterable {
     template <class T>
     struct is_deque<std::deque<T>> : std::true_type {};
 
+    template <class T> struct is_deque<const T> : public is_deque<T> {};
+    template <class T> struct is_deque<volatile const T> : public is_deque<T> {};
+    template <class T> struct is_deque<volatile T> : public is_deque<T> {};
+
     template <class T>
     constexpr bool is_deque_v = is_deque<T>::value;
 
@@ -74,6 +94,10 @@ namespace iterable {
 
     template <class T>
     struct is_set<std::set<T>> : std::true_type {};
+
+    template <class T> struct is_set<const T> : public is_set<T> {};
+    template <class T> struct is_set<volatile const T> : public is_set<T> {};
+    template <class T> struct is_set<volatile T> : public is_set<T> {};
 
     template <class T>
     constexpr bool is_set_v = is_set<T>::value;
@@ -85,6 +109,10 @@ namespace iterable {
     template <class T>
     struct is_multiset<std::multiset<T>> : std::true_type {};
 
+    template <class T> struct is_multiset<const T> : public is_multiset<T> {};
+    template <class T> struct is_multiset<volatile const T> : public is_multiset<T> {};
+    template <class T> struct is_multiset<volatile T> : public is_multiset<T> {};
+
     template <class T>
     constexpr bool is_multiset_v = is_multiset<T>::value;
 
@@ -94,6 +122,10 @@ namespace iterable {
 
     template <class T>
     struct is_unordered_set<std::unordered_set<T>> : std::true_type {};
+
+    template <class T> struct is_unordered_set<const T> : public is_unordered_set<T> {};
+    template <class T> struct is_unordered_set<volatile const T> : public is_unordered_set<T> {};
+    template <class T> struct is_unordered_set<volatile T> : public is_unordered_set<T> {};
 
     template <class T>
     constexpr bool is_unordered_set_v = is_unordered_set<T>::value;
@@ -105,6 +137,10 @@ namespace iterable {
     template <class T>
     struct is_unordered_multiset<std::unordered_multiset<T>> : std::true_type {};
 
+    template <class T> struct is_unordered_multiset<const T> : public is_unordered_multiset<T> {};
+    template <class T> struct is_unordered_multiset<volatile const T> : public is_unordered_multiset<T> {};
+    template <class T> struct is_unordered_multiset<volatile T> : public is_unordered_multiset<T> {};
+
     template <class T>
     constexpr bool is_unordered_multiset_v = is_unordered_multiset<T>::value;
 
@@ -114,6 +150,10 @@ namespace iterable {
 
     template <class K, class V>
     struct is_map<std::map<K, V>> : std::true_type {};
+
+    template <class T> struct is_map<const T> : public is_map<T> {};
+    template <class T> struct is_map<volatile const T> : public is_map<T> {};
+    template <class T> struct is_map<volatile T> : public is_map<T> {};
 
     template <class T>
     constexpr bool is_map_v = is_map<T>::value;
@@ -125,6 +165,10 @@ namespace iterable {
     template <class K, class V>
     struct is_multimap<std::multimap<K, V>> : std::true_type {};
 
+    template <class T> struct is_multimap<const T> : public is_multimap<T> {};
+    template <class T> struct is_multimap<volatile const T> : public is_multimap<T> {};
+    template <class T> struct is_multimap<volatile T> : public is_multimap<T> {};
+
     template <class T>
     constexpr bool is_multimap_v = is_multimap<T>::value;
 
@@ -134,6 +178,10 @@ namespace iterable {
 
     template <class K, class V>
     struct is_unordered_map<std::unordered_map<K, V>> : std::true_type {};
+
+    template <class T> struct is_unordered_map<const T> : public is_unordered_map<T> {};
+    template <class T> struct is_unordered_map<volatile const T> : public is_unordered_map<T> {};
+    template <class T> struct is_unordered_map<volatile T> : public is_unordered_map<T> {};
 
     template <class T>
     constexpr bool is_unordered_map_v = is_unordered_map<T>::value;
@@ -145,6 +193,10 @@ namespace iterable {
     template <class K, class V>
     struct is_unordered_multimap<std::unordered_multimap<K, V>> : std::true_type {};
 
+    template <class T> struct is_unordered_multimap<const T> : public is_unordered_multimap<T> {};
+    template <class T> struct is_unordered_multimap<volatile const T> : public is_unordered_multimap<T> {};
+    template <class T> struct is_unordered_multimap<volatile T> : public is_unordered_multimap<T> {};
+
     template <class T>
     constexpr bool is_unordered_multimap_v = is_unordered_multimap<T>::value;
 
@@ -154,6 +206,10 @@ namespace iterable {
 
     template <class T,  std::size_t N>
     struct is_array<std::array<T, N>> : std::true_type {};
+
+    template <class T> struct is_array<const T> : public is_array<T> {};
+    template <class T> struct is_array<volatile const T> : public is_array<T> {};
+    template <class T> struct is_array<volatile T> : public is_array<T> {};
 
     template <class T>
     constexpr bool is_array_v = is_array<T>::value;
