@@ -26,6 +26,29 @@ This library uses "detection idiom" with `std::void_t`, so you need to use C++17
 
 ## installation
 
+### integration with CMake
+
+`iterable_traits` can be installed with `cmake`.
+
+```
+mkdir build
+cd build
+cmake ..
+cmake --build . --target install
+```
+
+then add the following line in the CMakeLists.txt of your project.
+
+```
+find_package(iterable_traits REQUIRED)
+
+add_executable(your_project your_project.cpp)
+
+target_link_libraries(your_project iterable_traits::iterable_traits)
+```
+
+### manual installation
+
 `iterable_traits.h` is a single file header-only library.
 Simply place this file in your library path and you're ready to go.
 
