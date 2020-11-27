@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <array>
 
-namespace iterable {
+namespace iterable_traits {
     // meta function for checking if the template argument is iterable or not
     template <class T, typename = void> struct is_iterable : std::false_type {};
 

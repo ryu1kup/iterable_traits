@@ -2,7 +2,7 @@
 
 Simple header-only library providing iterable traits classes.
 
-Currently the following STL containers are supported:
+The following STL containers are interpreted as "itearble" types:
 
 - `std::vector`
 - `std::list`
@@ -18,6 +18,8 @@ Currently the following STL containers are supported:
 - `std::unordered_multimap`
 - `std::array`
 
+In addition, your original class, which is an STL compatible container, is also interpreted as "iterable".
+
 ## requirement
 
 This library uses "detection idiom" with `std::void_t`, so you need to use C++17.
@@ -28,7 +30,6 @@ This library uses "detection idiom" with `std::void_t`, so you need to use C++17
 Simply place this file in your library path and you're ready to go.
 
 ## usage
-
 ```
 #include "iterable_traits.h"
 #include <vector>
@@ -36,9 +37,9 @@ Simply place this file in your library path and you're ready to go.
 int main(){
     std::vector<int> v {1, 2, 3, 4, 5};
 
-    static_assert(iterable::is_iterable<decltype(v)>::value);
-    static_assert(iterable::is_iterable_v<decltype(v)>);
-    static_assert(iterable::is_vector<decltype(v)>::value);
-    static_assert(iterable::is_vector_v<decltype(v)>);
+    static_assert(iterable_traits::is_iterable<decltype(v)>::value);
+    static_assert(iterable_traits::is_iterable_v<decltype(v)>);
+    static_assert(iterable_traits::is_vector<decltype(v)>::value);
+    static_assert(iterable_traits::is_vector_v<decltype(v)>);
 }
 ```
